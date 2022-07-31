@@ -16,8 +16,6 @@ public class PlayerStats : MonoBehaviour
     Magic magic;
     Stamina stamina;
 
-    // TreeSet adding some shit 
-
     void Awake() 
     {
         health = GetComponent<Health>();
