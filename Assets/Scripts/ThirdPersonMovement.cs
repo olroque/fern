@@ -10,6 +10,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
 
     public float speed = 6f;
+    public float sprintSpeed = 24f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
@@ -23,6 +24,7 @@ public class ThirdPersonMovement : MonoBehaviour
     Vector3 velocity;
 
     bool isGrounded; 
+    public bool isMoving; 
 
     GameSession gameSession;
     Shooter shooter;
@@ -48,7 +50,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Move();
         Jump();
         Fire();
-        Sprint();
+        // Sprint();
         RespondToDebugKeys();
     }
 
@@ -74,14 +76,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Move()
     {
-        float sprintSpeed = speed * 2f;
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)
         {
+            isMoving = true;
+
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -96,7 +98,12 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
             }
+        } 
+        else 
+        {
+            isMoving = false;
         }
+
 
         controller.Move(velocity * Time.deltaTime);
     }
@@ -119,19 +126,6 @@ public class ThirdPersonMovement : MonoBehaviour
         else if (Input.GetButtonUp("Fire1") || currentMagic <= Mathf.Epsilon)
         {
             shooter.isFiring = false;
-        }
-    }
-
-    void Sprint()
-    {
-        int currentStamina = playerStats.GetCurrentStamina();
-        if (Input.GetButtonDown("Fire2") && (stamina != null) && currentStamina >= Mathf.Epsilon)
-        {
-            stamina.isSprinting = true;
-        } 
-        else if (Input.GetButtonUp("Fire2") || currentStamina <= Mathf.Epsilon)
-        {
-            stamina.isSprinting = false;
         }
     }
 }

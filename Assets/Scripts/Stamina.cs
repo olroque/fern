@@ -16,23 +16,32 @@ public class Stamina : MonoBehaviour
     Coroutine staminaCoroutine;
 
     PlayerStats playerStats;
+    ThirdPersonMovement thirdPersonMovement;
 
     void Awake() 
     {
         playerStats = GetComponent<PlayerStats>();    
-    }
-
-    void Start() 
-    {
-        maxStamina = playerStats.GetMaxStamina();
-        currentStamina = playerStats.GetCurrentHealth();
+        thirdPersonMovement = GetComponent<ThirdPersonMovement>();    
     }
     
     void Update() 
     {
+        SprintChecker();
         Sprint();
     }
 
+    void SprintChecker()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            isSprinting = true;
+        } 
+        else if (Input.GetButtonUp("Fire2"))
+        {
+            isSprinting = false;
+        }
+    }
+    
     void Sprint()
     {
         if (isSprinting && staminaCoroutine == null)
@@ -48,7 +57,7 @@ public class Stamina : MonoBehaviour
 
     IEnumerator ReduceStamina()
     {
-        while (true && currentStamina >= Mathf.Epsilon)
+        while (true && playerStats.GetCurrentStamina() >= Mathf.Epsilon && thirdPersonMovement.isMoving)
         {
             playerStats.ReduceSP(sprintCost);
             yield return new WaitForSeconds(exhaustRate);

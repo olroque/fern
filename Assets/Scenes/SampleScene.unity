@@ -593,7 +593,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311869054}
-  m_LocalRotation: {x: 0.09897817, y: -0.000000008560945, z: 8.515279e-10, w: 0.99508965}
+  m_LocalRotation: {x: 0.09897817, y: 0.000000008560947, z: -8.5152807e-10, w: 0.99508965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -706,28 +706,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b340587c58fcd415b8a93feb940d9906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &322959956 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -112021513843857774, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
-  m_PrefabInstance: {fileID: 3863638646482974880}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce55701dc29041cc868425637bcb34c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &322959957 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7404247331831169496, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
-  m_PrefabInstance: {fileID: 3863638646482974880}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d0a4dd627f840bd90d579d6293bc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &322959958 stripped
@@ -1041,13 +1019,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 322959955}
   healthSlider: {fileID: 809572432}
-  health: {fileID: 322959958}
   hpText: {fileID: 1532206823}
   staminaSlider: {fileID: 1300798179}
-  stamina: {fileID: 322959957}
   spText: {fileID: 1793787815}
   magicSlider: {fileID: 892432708}
-  magic: {fileID: 322959956}
   mpText: {fileID: 1315431113}
 --- !u!1 &705507993
 GameObject:
@@ -2908,11 +2883,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2255055447846404859, guid: 303fc09fcc2e24ff6a3b5b5b02af65cf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017100042
+      value: 0.000000017100048
       objectReference: {fileID: 0}
     - target: {fileID: 2255055447846404859, guid: 303fc09fcc2e24ff6a3b5b5b02af65cf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000000201196
+      value: -0.0000000020119824
       objectReference: {fileID: 0}
     - target: {fileID: 2255055447846404859, guid: 303fc09fcc2e24ff6a3b5b5b02af65cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2943,6 +2918,10 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 322959958}
+    - target: {fileID: 322959955, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
+      propertyPath: maxStamina
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2443782250689293890, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
       propertyPath: m_Name
       value: Player
