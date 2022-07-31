@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     Magic magic;
     Stamina stamina;
 
-    // TreeSet 
+    // TreeSet adding some shit 
 
     void Awake() 
     {
