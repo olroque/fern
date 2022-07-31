@@ -1,0 +1,6 @@
+todo list:
+
+1. refactor Shooter.cs and Magic.cs
+2. sprint should be null when not moving
+3. health, magic, and stamina shouldnt dip below zero
+4. refactor duplicate code in PlayerStats.cs
