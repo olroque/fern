@@ -82,6 +82,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+
+            Debug.Log(horizontal);
+            Debug.Log(vertical);
+
             isMoving = true;
 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;

@@ -11,6 +11,7 @@ public class Stamina : MonoBehaviour
     int maxStamina;
     int currentStamina;
 
+    public bool isSprintButtonDown;
     public bool isSprinting;
 
     Coroutine staminaCoroutine;
@@ -34,21 +35,22 @@ public class Stamina : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            isSprinting = true;
+            isSprintButtonDown = true;
         } 
         else if (Input.GetButtonUp("Fire2"))
         {
+            isSprintButtonDown = false;
             isSprinting = false;
         }
     }
     
     void Sprint()
     {
-        if (isSprinting && staminaCoroutine == null)
+        if (isSprintButtonDown && staminaCoroutine == null)
         {
             staminaCoroutine = StartCoroutine(ReduceStamina());
         }
-        else if (!isSprinting && staminaCoroutine != null)
+        else if (!isSprintButtonDown && staminaCoroutine != null)
         {
             StopCoroutine(staminaCoroutine);
             staminaCoroutine = null;
@@ -59,8 +61,10 @@ public class Stamina : MonoBehaviour
     {
         while (true && playerStats.GetCurrentStamina() >= Mathf.Epsilon && thirdPersonMovement.isMoving)
         {
+            isSprinting = true;
             playerStats.ReduceSP(sprintCost);
             yield return new WaitForSeconds(exhaustRate);
         }
+        isSprinting = false;
     }
 }
