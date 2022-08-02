@@ -708,17 +708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b340587c58fcd415b8a93feb940d9906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &322959958 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7468565784714903780, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
-  m_PrefabInstance: {fileID: 3863638646482974880}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb7eb0fe54e3c41dcbea2461e16ebc63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &345765697
 GameObject:
   m_ObjectHideFlags: 3
@@ -785,7 +774,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345765697}
-  m_LocalRotation: {x: 0.11701424, y: -0.00000001708818, z: 0.000000002013392, w: 0.99313027}
+  m_LocalRotation: {x: 0.11701424, y: 0.000000017088176, z: -0.0000000020133915, w: 0.99313027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1806,6 +1795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
   forwardMovement: 1
+  angle: 0
 --- !u!1 &1214785074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,11 +2892,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2255055447846404859, guid: 303fc09fcc2e24ff6a3b5b5b02af65cf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017100044
+      value: 0.000000017100048
       objectReference: {fileID: 0}
     - target: {fileID: 2255055447846404859, guid: 303fc09fcc2e24ff6a3b5b5b02af65cf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000000201196
+      value: -0.0000000020119824
       objectReference: {fileID: 0}
     - target: {fileID: 2255055447846404859, guid: 303fc09fcc2e24ff6a3b5b5b02af65cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2933,18 +2923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 322959955, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
-      propertyPath: health
-      value: 
-      objectReference: {fileID: 322959958}
-    - target: {fileID: 322959955, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
-      propertyPath: maxMagic
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 322959955, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
-      propertyPath: maxStamina
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2443782250689293890, guid: 89eb6ed764d074ee899af8e0a898b79e, type: 3}
       propertyPath: m_Name
       value: Player

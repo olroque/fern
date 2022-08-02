@@ -50,7 +50,6 @@ public class ThirdPersonMovement : MonoBehaviour
         Move();
         Jump();
         Fire();
-        // Sprint();
         RespondToDebugKeys();
     }
 
