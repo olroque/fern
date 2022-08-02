@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
 
-    public float moveSpeed = 2f;
-    public float xMove = 2f;
-    public float zMove = 2f;
+    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float forwardMovement = 1f;
+    [SerializeField] float angle;
+    
+    float smooth = 5f;
 
-    public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -26,14 +26,11 @@ public class EnemyAI : MonoBehaviour
 
     void Move()
     {
-        Vector3 direction = new Vector3(xMove, 0f, zMove).normalized;
+        Vector3 direction = new Vector3(0f, 0f, forwardMovement).normalized;
+        Quaternion target = Quaternion.Euler(0f, angle, 0f);
 
-        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + transform.eulerAngles.y;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
 
-        Vector3 moveDir = Quaternion.Euler(0f, targetAngle ,0f) * Vector3.forward;
-
-        transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime);
+        transform.Translate(direction.normalized * moveSpeed * Time.deltaTime);
     }
 }
